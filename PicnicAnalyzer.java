@@ -49,4 +49,16 @@ public class PicnicAnalyzer {
         }
     }
 
+    private int calculateTotalProductCount(Map<String, Integer> wordFrequency, boolean isFruit) {
+        int totalCount = 0;
+        for (Map.Entry<String, Integer> entry : wordFrequency.entrySet()) {
+            String word = entry.getKey();
+            int count = entry.getValue();
+            if ((isFruit && productCatalog.isFruit(word)) || (!isFruit && productCatalog.isVegetable(word))) {
+                totalCount += count;
+            }
+        }
+        return totalCount;
+    }
+
 }
