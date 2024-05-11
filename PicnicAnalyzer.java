@@ -42,4 +42,11 @@ public class PicnicAnalyzer {
         }
     }
 
+    private void printWordFrequency(Map<String, Integer> wordFrequency) {
+        System.out.println("Частота слов:");
+        for (Map.Entry<String, Integer> entry : wordFrequency.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+    }
+
 }
