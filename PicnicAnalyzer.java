@@ -60,5 +60,21 @@ public class PicnicAnalyzer {
         }
         return totalCount;
     }
+    
+    private String findPopularProduct(Map<String, Integer> wordFrequency, boolean isFruit) {
+        int maxCount = 0;
+        String popularProduct = "";
+        for (Map.Entry<String, Integer> entry : wordFrequency.entrySet()) {
+            String word = entry.getKey();
+            int count = entry.getValue();
+            if ((isFruit && productCatalog.isFruit(word)) || (!isFruit && productCatalog.isVegetable(word))) {
+                if (count > maxCount) {
+                    maxCount = count;
+                    popularProduct = word;
+                }
+            }
+        }
+        return popularProduct;
+    }
 
 }
